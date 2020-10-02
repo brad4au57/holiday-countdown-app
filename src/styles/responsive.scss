@@ -1,19 +1,36 @@
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { 
-    
+    .heading-text {
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
  }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
-
+    .heading-text {
+        h1 {
+            font-size: 3rem;
+        }
+    }
  }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    
+    .heading-text {
+        h1 {
+            font-size: 3.5rem;
+        }
+    }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+    .heading-text {
+        h1 {
+            font-size: 4rem;
+        }
+    }
     
  }

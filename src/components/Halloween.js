@@ -2,27 +2,40 @@ import React, { useEffect, useState } from 'react'
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Background from "../img/halloween-background.jpg"
 import { countdown } from "./helpers";
 
-export default function Halloween() {
-    const [timeLeft, setTimeLeft] = useState(countdown());
+export default function Halloween(props) {
+    const holidayStyles = {
+        width: '100vw',
+        height: '100vh',
+        background: `#000 url(${props.holidayImg}) no-repeat fixed center`,
+        backgroundSize: "cover"
+    }
+    const h1FontStyle = {
+        fontFamily: `${props.holidayBigFont}`
+    }
+
+    const h4FontStyle = {
+        fontFamily: `${props.holidaySmallFont}`
+    }
+
+    const [timeLeft, setTimeLeft] = useState(countdown(props.holidayDate));
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setTimeLeft(countdown());
+            setTimeLeft(countdown(props.holidayDate));
         }, 1000);
         // Clear timeout if the component is unmounted
         return () => clearTimeout(timer);
     });
  
     return (
-        <Container fluid style={halloweenStyles}>
+        <Container fluid style={holidayStyles}>
             <Container className="text-center">
                 <Row>
                     <Col className="heading-text col-12 mt-5  mb-md-5">
-                        <h4> - Countdown To - </h4>
-                        <h1>Halloween</h1> 
+                        <h4 style={h4FontStyle}> - Countdown To - </h4>
+                        <h1 style={h1FontStyle}>{props.holidayName}</h1> 
                     </Col>
                 </Row>
                 <Row>
@@ -46,11 +59,4 @@ export default function Halloween() {
             </Container>
         </Container>
     )
-}
-
-const halloweenStyles = {
-    width: '100vw',
-    height: '100vh',
-    background: `#000 url(${Background}) no-repeat fixed center`,
-    backgroundSize: "cover"
 }

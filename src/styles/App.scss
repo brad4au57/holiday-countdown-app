@@ -8,10 +8,10 @@ body{
 
 .heading-text{
     h1{
-        font-family: $Nosifer;
+        font-size: 2rem;
     }
-    h4 {
-        font-family: $Creepster;
+    h4{
+        font-family: cursive;
     }
 }
 .time-container{
@@ -25,7 +25,5 @@ body{
     }
 
 }
-
-
 
 @import "./responsive.scss"
